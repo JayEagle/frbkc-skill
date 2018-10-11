@@ -17,56 +17,55 @@ LOG = getLogger(__name__)
 
 class FRBKCSkill(MycroftSkill):
 
-    # The constructor of the skill, which calls MycroftSkill's constructor
-    def __init__(self):
-        super(FRBKCSkill, self).__init__(name="FRBKCSkill")
-        
-        # Initialize working variables used within the skill.
-        self.count = 0
-        
-    # The "handle_xxxx_intent" function is triggered by Mycroft when the
-    # skill's intent is matched.  The intent is defined by the IntentBuilder()
-    # pieces, and is triggered when the user's utterance matches the pattern
-    # defined by the keywords.  
-    @intent_handler(IntentBuilder("").require("about").require("kc"))
-    def handle_about_kc_fed_vocab(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("about.kc.fed")
+	# The constructor of the skill, which calls MycroftSkill's constructor
+	def __init__(self):
+		super(FRBKCSkill, self).__init__(name="FRBKCSkill")
+		
+		# Initialize working variables used within the skill.
+		self.count = 0
+		
+	# The "handle_xxxx_intent" function is triggered by Mycroft when the
+	# skill's intent is matched.  The intent is defined by the IntentBuilder()
+	# pieces, and is triggered when the user's utterance matches the pattern
+	# defined by the keywords.  
+	@intent_handler(IntentBuilder("").require("about").require("kc"))
+	def handle_about_kc_fed_vocab(self, message):
+		# In this case, respond by simply speaking a canned response.
+		# Mycroft will randomly speak one of the lines from the file
+		#	dialogs/en-us/hello.world.dialog
+		self.speak_dialog("about.kc.fed")
 
 	@intent_handler(IntentBuilder("").require("kc").require("leader"))
-    def handle_kc_president_vocab(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("kc.president")
+	def handle_kc_president_vocab(self, message):
+		# In this case, respond by simply speaking a canned response.
+		# Mycroft will randomly speak one of the lines from the file
+		#	dialogs/en-us/hello.world.dialog
+		self.speak_dialog("kc.president")
 
 	@intent_handler(IntentBuilder("").require("kc").require("branch"))
-    def handle_kc_branches_vocab(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("kc.branches")
+	def handle_kc_branches_vocab(self, message):
+		# In this case, respond by simply speaking a canned response.
+		# Mycroft will randomly speak one of the lines from the file
+		#	dialogs/en-us/hello.world.dialog
+		self.speak_dialog("kc.branches")
 
 	@intent_handler(IntentBuilder("").require("kc").require("location"))
-    def handle_kc_district_vocab(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("kc.district")
+	def handle_kc_district_vocab(self, message):
+		# In this case, respond by simply speaking a canned response.
+		# Mycroft will randomly speak one of the lines from the file
+		#	dialogs/en-us/hello.world.dialog
+		self.speak_dialog("kc.district")
 		
-    # The "stop" method defines what Mycroft does when told to stop during
-    # the skill's execution. In this case, since the skill's functionality
-    # is extremely simple, there is no need to override it.  If you DO
-    # need to implement stop, you should return True to indicate you handled
-    # it.
-    #
-    # def stop(self):
-    #    return False
+	# The "stop" method defines what Mycroft does when told to stop during
+	# the skill's execution. In this case, since the skill's functionality
+	# is extremely simple, there is no need to override it.  If you DO
+	# need to implement stop, you should return True to indicate you handled
+	# it.
+	#
+	# def stop(self):
+	#	return False
 
 # The "create_skill()" method is used to create an instance of the skill.
 # Note that it's outside the class itself.
 def create_skill():
-    return FRBKCSkill()
-
+	return FRBKCSkill()
